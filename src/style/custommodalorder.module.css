@@ -1,0 +1,204 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5e676f !important;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 4px;
+    width: 600px;
+    height: 600px;
+    position: relative;
+    overflow: scroll;
+}
+.modalContent::-webkit-scrollbar{
+    display: none;
+}
+.custom-modal-state-containers-section{
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    gap: 10px;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdownButton {
+    width: 100% !important;
+    color: #5e676f !important;
+    border-radius: 4px !important;
+    outline: none !important;
+    border: none !important;
+    margin-bottom: 0px !important;
+    padding: 11px !important;
+    font-size: 13px !important;
+    border-color: transparent !important;
+    appearance: none !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdownIcon {
+    margin-left: auto;
+}
+
+.dropdownContent {
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdownItem {
+    padding: 4px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.dropdownItem:hover {
+    background-color: #f0f0f0;
+}
+
+.selectInputGroups {
+    width: 100% !important;
+    color: #5e676f !important;
+    border-radius: 4px !important;
+    outline: none !important;
+    border: none !important;
+    margin-bottom: 0px !important;
+    padding: 11px !important;
+    font-size: 13px !important;
+    border-color: transparent !important;
+    appearance: none !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+}
+.selectFormGroup{
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+}
+.modalHeading{
+    font-size: 16px;
+    font-weight: 500;
+}
+.modalCustomContent{
+    padding: 16px 0px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.modalFormGroup{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+.modalContentText{
+font-size: 14px;
+font-weight: 500;
+}
+.selectModalText{
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+.custom-modal-input-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.custom-modal-label-heading{
+    font-size: 14px;
+    font-weight: 500;
+}
+.custom-modal-input-form-containers-section{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.modalcustombuttonsec{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.custom-modal-label-button-section{
+    background: linear-gradient(to left, #00dcff, #0075ce);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none !important;
+}
+
+ /* for button loader */
+ .custom-modal-label-button-section[disabled] {
+    cursor: not-allowed;
+    background-color: #ccc; /* Change to your desired disabled color */
+  }
+  
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000; /* Spinner color */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+  
+  @keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+  }
+  /* for button loader */
+
+.custom-modal-checkbox-sections{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0.25em;
+}
+@media screen and (max-width: 1400px) {
+    .modalContent {
+        width: 500px;
+        height: 460px;
+        top: 20px;
+    }
+}
