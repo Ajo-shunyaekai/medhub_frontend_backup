@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from '../style/request.module.css';
+import { HiOutlineDownload } from "react-icons/hi";
 import Table from 'react-bootstrap/Table';
 import Pagination from "react-js-pagination";
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
@@ -17,12 +18,12 @@ const SellerRequest = () => {
     const filterValue = queryParams.get('filterValue');
 
     const adminIdSessionStorage = sessionStorage.getItem("admin_id");
-    const adminIdLocalStorage   = localStorage.getItem("admin_id");
+    const adminIdLocalStorage = localStorage.getItem("admin_id");
 
-    const [loading, setLoading]                     = useState(true);
+    const [loading, setLoading] = useState(true);
     const [sellerRequestList, setSellerRequestList] = useState([])
-    const [totalRequests, setTotalRequests]         = useState()
-    const [currentPage, setCurrentPage]             = useState(1);
+    const [totalRequests, setTotalRequests] = useState()
+    const [currentPage, setCurrentPage] = useState(1);
     const listPerPage = 5;
 
     const handlePageChange = (pageNumber) => {
@@ -35,11 +36,11 @@ const SellerRequest = () => {
             return;
         }
         const obj = {
-            admin_id    : adminIdSessionStorage || adminIdLocalStorage,
-            filterKey   : 'pending',
-            filterValue : filterValue,
-            pageNo      : currentPage,
-            pageSize    : listPerPage,
+            admin_id: adminIdSessionStorage || adminIdLocalStorage,
+            filterKey: 'pending',
+            filterValue: filterValue,
+            pageNo: currentPage,
+            pageSize: listPerPage,
         }
 
         postRequestWithToken('admin/get-supplier-reg-req-list', obj, async (response) => {
@@ -59,7 +60,13 @@ const SellerRequest = () => {
                 <Loader />
             ) : (
                 <div className={styles['rejected-main-container']}>
-                    <div className={styles['rejected-main-head']}>Seller Request</div>
+                    <div className={styles['rejected-main-head-container']}>
+                        <div className={styles['rejected-main-head']}>Seller Request</div>
+                        <div className={styles['rejected-head-button']}>
+                           <HiOutlineDownload className={styles['rejected-images']}/>
+                            <div className={styles['rejected-head-button-text']}>Download</div>
+                        </div>
+                    </div>
                     <div className={styles['rejected-container']}>
                         <div className={styles['rejected-container-right-2']}>
                             <Table responsive="xxl" className={styles['rejected-table-responsive']}>
@@ -114,13 +121,13 @@ const SellerRequest = () => {
 
                                         ))
                                     ) :
-                                    (
-                                        <>
-                                            <div className='pending-products-no-orders'>
-                                                No Data Available
-                                            </div>
-                                        </>
-                                    )}
+                                        (
+                                            <>
+                                                <div className='pending-products-no-orders'>
+                                                    No Data Available
+                                                </div>
+                                            </>
+                                        )}
                                 </tbody>
                             </Table>
                             <div className={styles['rejected-pagi-container']}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from '../../style/order.module.css';
+import { HiOutlineDownload } from "react-icons/hi";
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import ActiveBuyerOrder from './ActiveBuyerOrder';
 import CompletedBuyerOrder from './CompletedBuyerOrder';
@@ -109,6 +110,10 @@ const BuyerOrder = () => {
             <div className={styles[`order-container`]}>
                 <div className={styles['complete-container-order-section']}>
                     <div className={styles['complete-conatiner-head']}>Orders</div>
+                    <div className={styles['rejected-head-button']}>
+                           <HiOutlineDownload className={styles['rejected-images']}/>
+                            <div className={styles['rejected-head-button-text']}>Download</div>
+                        </div>
                 </div>
                 <div className={styles[`order-wrapper`]}>
                     <div className={styles[`order-wrapper-left`]}>

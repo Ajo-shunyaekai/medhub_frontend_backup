@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from '../style/request.module.css';
 import Table from 'react-bootstrap/Table';
+import { HiOutlineDownload } from "react-icons/hi";
 import Pagination from "react-js-pagination";
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
@@ -59,7 +60,13 @@ const BuyerRequest = () => {
                      <Loader />
                 ) : (
             <div className={styles['rejected-main-container']}>
-                <div className={styles['rejected-main-head']}>Buyer Request</div>
+                <div className={styles['rejected-main-head-container']}>
+                        <div className={styles['rejected-main-head']}>Buyer Request</div>
+                        <div className={styles['rejected-head-button']}>
+                           <HiOutlineDownload className={styles['rejected-images']}/>
+                            <div className={styles['rejected-head-button-text']}>Download</div>
+                        </div>
+                    </div>
                 <div className={styles['rejected-container']}>
                     <div className={styles['rejected-container-right-2']}>
                         <Table responsive="xxl" className={styles['rejected-table-responsive']}>
