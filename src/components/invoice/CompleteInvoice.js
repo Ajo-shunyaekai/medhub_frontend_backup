@@ -8,41 +8,10 @@ import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 import { Link, useNavigate } from 'react-router-dom';
 import html2pdf from 'html2pdf.js';
-import InvoiceTemplate from '../pay/invoiceDesign';
 
 const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerPage, handlePageChange }) => {
 
     const navigate = useNavigate();
-
-    const [showModal, setShowModal] = useState(false);
-    const handleShowModal = () => setShowModal(true);
-    const handleCloseModal = () => setShowModal(false);
-
-    // invoice download
-    // const handleDownload = (invoice) => {
-    //     const element = document.createElement('div');
-    //     document.body.appendChild(element);
-
-    //     // Render the InvoiceTemplate with the given invoice data
-    //     ReactDOM.render(<InvoiceTemplate invoice={invoice} />, element);
-
-    //     // Set options for html2pdf
-    //     const options = {
-    //         margin: 0.5,
-    //         filename: `invoice_${invoice.invoice_number}.pdf`,
-    //         image: { type: 'jpeg', quality: 1.00 },
-    //         html2canvas: { scale: 2 },
-    //         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    //     };
-
-    //     // Generate PDF
-    //     html2pdf().from(document.getElementById('invoice-content')).set(options).save().then(() => {
-    //         // Clean up the temporary container
-    //         ReactDOM.unmountComponentAtNode(element);
-    //         document.body.removeChild(element);
-    //     });
-    // };
-
     const iframeRef = useRef(null);
 
     const handleDownload = (invoiceId) => {
@@ -55,12 +24,14 @@ const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
 
     useEffect(() => {
         const iframe = iframeRef.current;
-
+       
         if (iframe) {
+           
             const handleIframeLoad = () => {
                 setTimeout(() => {
                     const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
                     const element = iframeDocument.getElementById('invoice-content');
+                    console.log('element',element)
                     if (element) {
                         const options = {
                             margin: 0.5,
@@ -69,23 +40,20 @@ const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
                             html2canvas: { scale: 2 },
                             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
                         };
-
                         html2pdf().from(element).set(options).save();
                     } else {
-                        console.error('Invoice content element not found');
+                        console.log('Invoice content element not found',element);
                     }
-                }, 500);
+                }, 1000);
             };
-
             iframe.addEventListener('load', handleIframeLoad);
 
             return () => {
                 iframe.removeEventListener('load', handleIframeLoad);
             };
         }
-    }, []);
-
-    // Check for buyer_id in sessionStorage or localStorage
+    }, );
+   
     useEffect(() => {
         const buyerIdSessionStorage = sessionStorage.getItem("buyer_id");
         const buyerIdLocalStorage = localStorage.getItem("buyer_id");
@@ -95,11 +63,6 @@ const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
             return;
         }
     }, [navigate]);
-
-    // Pagination handler renamed to avoid conflict
-    const onPageChange = (pageNumber) => {
-        handlePageChange(pageNumber);
-    };
 
     return (
         <>
@@ -149,7 +112,7 @@ const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
                                         </td>
                                         <td>
                                             <div className='invoice-details-button-row'>
-                                                <Link to={`/buyer/invoice-design/${invoice.invoice_id}`}>
+                                                <Link to={`/buyer/invoice-design/${invoice}`}>
                                                     <div className='invoice-details-button-column'>
                                                         <VisibilityOutlinedIcon className='invoice-view' />
                                                     </div>

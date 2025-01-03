@@ -43,14 +43,14 @@ const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
                      } else {
                          console.error('Invoice content element not found');
                      }
-                 }, 500);
+                 }, 1000);
              };
              iframe.addEventListener('load', handleIframeLoad);
              return () => {
                  iframe.removeEventListener('load', handleIframeLoad);
              };
          }
-     }, []);
+     }, );
 
 
     return (

@@ -60,7 +60,7 @@ const PendingInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerPa
                     } else {
                         console.error('Invoice content element not found');
                     }
-                }, 500);
+                }, 1000);
             };
 
             iframe.addEventListener('load', handleIframeLoad);
@@ -69,7 +69,7 @@ const PendingInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerPa
                 iframe.removeEventListener('load', handleIframeLoad);
             };
         }
-    }, []);
+    }, );
 
     useEffect(() => {
         const buyerIdSessionStorage = sessionStorage.getItem("buyer_id");
