@@ -42,7 +42,7 @@ const ProformaList = ({ invoiceList, currentPage, totalInvoices, invoicesPerPage
                     } else {
                         console.error('Invoice content element not found');
                     }
-                }, 500);
+                }, 1000);
             };
 
             iframe.addEventListener('load', handleIframeLoad);
@@ -51,7 +51,7 @@ const ProformaList = ({ invoiceList, currentPage, totalInvoices, invoicesPerPage
                 iframe.removeEventListener('load', handleIframeLoad);
             };
         }
-    }, []);
+    }, );
 
     return (
         <div className='pending-invo-container' >

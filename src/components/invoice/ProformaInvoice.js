@@ -51,7 +51,7 @@ const ProformaInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
                     } else {
                         console.error('Invoice content element not found');
                     }
-                }, 500);
+                }, 1000);
             };
 
             iframe.addEventListener('load', handleIframeLoad);
@@ -60,7 +60,7 @@ const ProformaInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
                 iframe.removeEventListener('load', handleIframeLoad);
             };
         }
-    }, []);
+    }, );
 
 
     useEffect(() => {

@@ -112,7 +112,7 @@ const CompleteInvoice = ({ invoiceList, currentPage, totalInvoices, invoicesPerP
                                         </td>
                                         <td>
                                             <div className='invoice-details-button-row'>
-                                                <Link to={`/buyer/invoice-design/${invoice}`}>
+                                                <Link to={`/buyer/invoice-design/${invoice.invoice_id}`}>
                                                     <div className='invoice-details-button-column'>
                                                         <VisibilityOutlinedIcon className='invoice-view' />
                                                     </div>

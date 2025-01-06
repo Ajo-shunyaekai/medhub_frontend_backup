@@ -91,10 +91,10 @@ const ApprovedSeller = () => {
                 <div className='rejected-main-container'>
                     <div className='rejected-main-head-container'>
                         <div className='rejected-main-head'>Approved Seller</div>
-                        <div className='rejected-head-button'>
+                        {/* <div className='rejected-head-button'>
                             <HiOutlineDownload className='rejected-images' />
                             <div className='rejected-head-button-text'>Download</div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="rejected-container">
                         <div className="rejected-container-right-2">

@@ -54,6 +54,10 @@ const SellerRequest = () => {
         })
     }, [currentPage])
 
+    const handleDownload = () => {
+        
+    }
+
     return (
         <>
             {loading ? (
@@ -62,10 +66,10 @@ const SellerRequest = () => {
                 <div className={styles['rejected-main-container']}>
                     <div className={styles['rejected-main-head-container']}>
                         <div className={styles['rejected-main-head']}>Seller Request</div>
-                        <div className={styles['rejected-head-button']}>
+                        {/* <div className={styles['rejected-head-button']} onClick={handleDownload}>
                            <HiOutlineDownload className={styles['rejected-images']}/>
                             <div className={styles['rejected-head-button-text']}>Download</div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={styles['rejected-container']}>
                         <div className={styles['rejected-container-right-2']}>
